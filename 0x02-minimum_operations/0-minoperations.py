@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
- This module determines the number of minmum operations given n characters
+ This module calculates the fewest number of operations needed
 """
 
 
