@@ -5,28 +5,28 @@
 import sys
 
 
-def _printstat(dic, size):
+def printStatus(dic, size):
     """ Prints information """
     print("File size: {:d}".format(size))
-    for x in sorted(dic.keys()):
-        if dic[x] != 0:
-            print("{}: {:d}".format(x, dic[i]))
+    for i in sorted(dic.keys()):
+        if dic[i] != 0:
+            print("{}: {:d}".format(i, dic[i]))
 
 
 # sourcery skip: use-contextlib-suppress
 statusCodes = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
                "404": 0, "405": 0, "500": 0}
 
-cnt = 0
+count = 0
 size = 0
 
 try:
     for line in sys.stdin:
-        if cnt != 0 and cnt % 10 == 0:
-            _printstat(statusCodes, size)
+        if count != 0 and count % 10 == 0:
+            printStatus(statusCodes, size)
 
         stlist = line.split()
-        cnt += 1
+        count += 1
 
         try:
             size += int(stlist[-1])
@@ -38,9 +38,9 @@ try:
                 statusCodes[stlist[-2]] += 1
         except Exception:
             pass
-    _printstat(statusCodes, size)
+    printStatus(statusCodes, size)
 
 
 except KeyboardInterrupt:
-    _printstat(statusCodes, size)
+    printStatus(statusCodes, size)
     raise
