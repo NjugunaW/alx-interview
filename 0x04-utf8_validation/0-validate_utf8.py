@@ -9,6 +9,11 @@ def validUTF8(data):
     data: a list of integers
     Return: True if data is a valid UTF-8
     encoding, else return False
+    Args:
+        data:
+
+    Returns:
+
     """
     byte_count = 0
 
